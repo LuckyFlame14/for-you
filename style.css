@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(180deg, #fff1f7, #fdfcff);
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slide {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.7s ease;
+  padding: 20px;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin: 15px 0;
+  color: #3a3a3a;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.flower {
+  width: 160px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 12px 22px;
+  border-radius: 25px;
+  border: none;
+  background: #ff9bb3;
+  color: white;
+  font-size: 1rem;
+}
+
+.nav {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.nav button {
+  background: rgba(0,0,0,0.05);
+  color: #444;
+}
+
+/* Mute button */
+#muteBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+}
