@@ -1,8 +1,8 @@
-/your-repo
+for-you/
  ├─ index.html
  ├─ style.css
  ├─ script.js
  ├─ flowers/
- │    └─ bouquet.png   (or .jpg / .svg)
+ │    └─ bouquet.png
  └─ music/
       └─ soft.mp3
