@@ -5,6 +5,14 @@ const muteBtn = document.getElementById("muteBtn");
 let current = 0;
 let started = false;
 
+document.body.addEventListener("click", () => {
+  if (!started) {
+    music.volume = 0.4;
+    music.play().catch(() => {});
+    started = true;
+  }
+}, { once: true });
+
 function showSlide(index) {
   slides.forEach(s => s.classList.remove("active"));
   slides[index].classList.add("active");
@@ -12,12 +20,6 @@ function showSlide(index) {
 
 function nextSlide(e) {
   if (e) e.stopPropagation();
-
-  if (!started) {
-    music.play().catch(() => {});
-    started = true;
-  }
-
   if (current < slides.length - 1) {
     current++;
     showSlide(current);
@@ -39,11 +41,7 @@ function replay(e) {
 }
 
 function toggleMusic() {
-  if (music.muted) {
-    music.muted = false;
-    muteBtn.textContent = "🔊";
-  } else {
-    music.muted = true;
-    muteBtn.textContent = "🔇";
-  }
+  music.muted = !music.muted;
+  muteBtn.textContent = music.muted ? "🔇" : "🔊";
 }
+
