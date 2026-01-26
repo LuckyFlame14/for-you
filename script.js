@@ -5,11 +5,17 @@ const muteBtn = document.getElementById("muteBtn");
 let current = 0;
 let started = false;
 
-document.body.addEventListener("click", () => {
+// Start music on first user interaction (mobile-safe)
+document.addEventListener("click", () => {
   if (!started) {
     music.volume = 0.4;
-    music.play().catch(() => {});
-    started = true;
+    music.muted = false;
+    music.play().then(() => {
+      started = true;
+      muteBtn.textContent = "🔊";
+    }).catch(() => {
+      console.log("Audio blocked until interaction");
+    });
   }
 }, { once: true });
 
@@ -44,4 +50,3 @@ function toggleMusic() {
   music.muted = !music.muted;
   muteBtn.textContent = music.muted ? "🔇" : "🔊";
 }
-
